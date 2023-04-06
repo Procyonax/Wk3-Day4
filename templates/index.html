@@ -13,6 +13,8 @@
         <input type="text" name="room" id="room">
         <label for="description">Description</label>
         <textarea name="description" id="description" rows="2" cols="30"></textarea> 
+        <label for="recurring">Recurring</label>
+        <input type="checkbox" name="recurring" id="recurring">
         <input type="submit" value="Add Event">
 
     </form>
@@ -21,6 +23,11 @@
     <p>
         <a href="{{ url_for('show_event', event_id=event.id) }}">{{ event.event_name }}</a>: 
         {{ event.event_description }}
+        {% if event.event_recurring %}
+            <span> &#9989; </span>
+        {% else %}
+            <span> &#10060; </span>
+        {% endif %}
     </p>
     {% endfor %}
 

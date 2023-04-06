@@ -3,7 +3,12 @@
 {% block content %}
 
     <p>
-        {{ event.event_name }}: {{ event.event_description }}: {{event.event_date}}: {{event.event_guests}}: {{event.event_room}}
+        {{ event.event_name }}: {{ event.event_description }}: {{event.event_date}}: {{event.event_guests}}: {{event.event_room}}:
+        {% if event.event_recurring %}
+            <span> &#9989; </span>
+        {% else %}
+            <span> &#10060; </span>
+        {% endif %}
     </p>
 
 {% endblock %}
